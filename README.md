@@ -3,7 +3,7 @@
 Chrome/Brave extension that adds a [Raindrop.io](https://raindrop.io/) save button to:
 
 - X/Twitter tweets
-- old Reddit posts
+- Reddit posts (for old Reddit UI only)
 - Hacker News stories
 
 Clicking the droplet saves directly to Raindrop.io with the link, title, description/note, and a single site tag. If direct API save is not configured or fails, XRain falls back to Raindrop.io's add-link page.
