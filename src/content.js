@@ -104,17 +104,12 @@
     const author = cleanText([displayName, handle && `(${handle})`].filter(Boolean).join(" "));
     const prefix = author ? `${author} on ${platform}` : platform;
     const title = text ? `${prefix}: "${text}"` : `${prefix} post`;
-    const tags = [host];
-
-    if (handle) {
-      tags.push(handle.replace(/^@/, "").toLowerCase());
-    }
 
     return {
       link,
       title,
       description: text,
-      tags
+      tags: ["x"]
     };
   }
 
@@ -172,7 +167,7 @@
       link: url,
       title: subreddit ? `${title} - r/${subreddit}` : title,
       description: descriptionParts.join("\n"),
-      tags: ["reddit", subreddit && `r-${subreddit.toLowerCase()}`]
+      tags: ["reddit"]
     };
   }
 
@@ -213,7 +208,7 @@
       link,
       title: title ? `${title} - Hacker News` : "Hacker News post",
       description,
-      tags: ["hacker-news"]
+      tags: ["hn"]
     };
   }
 
