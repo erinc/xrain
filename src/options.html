@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XRain Options</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main>
+      <h1>XRain</h1>
+
+      <label class="toggle">
+        <input id="llmEnabled" type="checkbox">
+        <span>Use Gemini titles for X posts</span>
+      </label>
+
+      <label>
+        <span>Model</span>
+        <input id="llmModel" type="text" list="modelSuggestions" spellcheck="false">
+      </label>
+
+      <label>
+        <span>Gemini API key</span>
+        <input id="geminiApiKey" type="password" autocomplete="off" spellcheck="false">
+      </label>
+
+      <label>
+        <span>Raindrop API token</span>
+        <input id="raindropToken" type="password" autocomplete="off" spellcheck="false">
+      </label>
+
+      <datalist id="modelSuggestions">
+        <option value="gemini-2.5-flash-lite"></option>
+        <option value="gemini-2.5-flash"></option>
+      </datalist>
+
+      <label>
+        <span>Timeout, milliseconds</span>
+        <input id="llmTimeoutMs" type="number" min="1000" step="1000">
+      </label>
+
+      <div class="actions">
+        <button id="save" type="button">Save</button>
+        <button id="test" type="button">Test model</button>
+      </div>
+      <p id="status" role="status"></p>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>

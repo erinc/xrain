@@ -13,8 +13,15 @@
   line-height: 1;
   margin: 0;
   padding: 0;
+  position: relative;
   text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease, opacity 0.18s ease;
   vertical-align: middle;
+}
+
+.xrain-button:disabled {
+  cursor: wait;
+  opacity: 0.85;
 }
 
 .xrain-button:hover,
@@ -31,29 +38,145 @@
   width: 18px;
 }
 
+.xrain-button[data-xrain-state="loading"] {
+  color: #00a2ff;
+}
+
+.xrain-button[data-xrain-state="loading"]::after {
+  animation: xrain-spin 0.75s linear infinite;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  box-sizing: border-box;
+  content: "";
+  height: 18px;
+  position: absolute;
+  width: 18px;
+}
+
+.xrain-button[data-xrain-state="loading"] svg {
+  opacity: 0.18;
+}
+
+.xrain-button[data-xrain-state="success"] {
+  color: #00ba7c;
+}
+
+.xrain-button[data-xrain-state="fallback"] {
+  color: #f5a623;
+}
+
 .xrain-button--x {
   height: 34px;
+  margin-left: 12px;
   width: 34px;
 }
 
+.xrain-button--x svg {
+  height: 21px;
+  width: 21px;
+}
+
+.xrain-button--x[data-xrain-state="loading"]::after {
+  height: 21px;
+  width: 21px;
+}
+
 .xrain-button--x:hover,
-.xrain-button--x:focus-visible {
+.xrain-button--x:focus-visible,
+.xrain-button--x[data-xrain-state="loading"] {
   background: rgba(0, 162, 255, 0.1);
+}
+
+.xrain-button--x[data-xrain-state="success"] {
+  background: rgba(0, 186, 124, 0.1);
+}
+
+.xrain-button--x[data-xrain-state="fallback"] {
+  background: rgba(245, 166, 35, 0.12);
 }
 
 .xrain-button--reddit,
 .xrain-button--hn {
   color: inherit;
+  border-radius: 0;
+  display: inline;
+  font: inherit;
   height: auto;
-  padding: 0 2px;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: baseline;
 }
 
-.xrain-button--reddit svg,
-.xrain-button--hn svg {
-  height: 13px;
-  width: 13px;
+.xrain-button--reddit {
+  color: #888;
+  font-size: 10px;
+  font-weight: bold;
 }
 
-.xrain-hn-cell {
-  white-space: nowrap;
+.xrain-button--reddit:hover,
+.xrain-button--reddit:focus-visible,
+.xrain-button--hn:hover,
+.xrain-button--hn:focus-visible {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.xrain-button--reddit[data-xrain-state="loading"],
+.xrain-button--hn[data-xrain-state="loading"] {
+  color: inherit;
+}
+
+.xrain-button--reddit[data-xrain-state="loading"]::after,
+.xrain-button--hn[data-xrain-state="loading"]::after {
+  display: none;
+}
+
+.xrain-toast {
+  background: rgba(15, 20, 25, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(15, 20, 25, 0.18);
+  box-sizing: border-box;
+  color: #fff;
+  font: 13px/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  max-width: min(320px, calc(100vw - 32px));
+  opacity: 0;
+  padding: 10px 12px;
+  pointer-events: none;
+  position: fixed;
+  right: 16px;
+  top: 16px;
+  transform: translateY(-8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 2147483647;
+}
+
+.xrain-toast[data-xrain-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.xrain-toast[data-xrain-tone="success"] {
+  background: rgba(0, 128, 85, 0.96);
+}
+
+.xrain-toast[data-xrain-tone="error"] {
+  background: rgba(190, 43, 43, 0.96);
+}
+
+.xrain-toast[data-xrain-tone="fallback"] {
+  background: rgba(150, 94, 0, 0.96);
+}
+
+@keyframes xrain-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

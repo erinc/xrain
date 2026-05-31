@@ -3,6 +3,11 @@
   "name": "XRain",
   "description": "Add one-click Raindrop.io save buttons to X/Twitter, old Reddit, and Hacker News posts.",
   "version": "0.1.0",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "options_page": "src/options.html",
   "content_scripts": [
     {
       "matches": [
@@ -24,6 +29,8 @@
     "https://mobile.twitter.com/*",
     "https://old.reddit.com/*",
     "https://www.reddit.com/*",
-    "https://news.ycombinator.com/*"
+    "https://news.ycombinator.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.raindrop.io/*"
   ]
 }
