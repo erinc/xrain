@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "XRain",
+  "description": "Add one-click Raindrop.io save buttons to X/Twitter, old Reddit, and Hacker News posts.",
+  "version": "0.1.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*",
+        "https://mobile.twitter.com/*",
+        "https://old.reddit.com/*",
+        "https://www.reddit.com/*",
+        "https://news.ycombinator.com/*"
+      ],
+      "js": ["src/content.js"],
+      "css": ["src/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "https://mobile.twitter.com/*",
+    "https://old.reddit.com/*",
+    "https://www.reddit.com/*",
+    "https://news.ycombinator.com/*"
+  ]
+}

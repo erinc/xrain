@@ -1,0 +1,59 @@
+.xrain-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  box-sizing: border-box;
+  color: #71767b;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  gap: 4px;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.xrain-button:hover,
+.xrain-button:focus-visible {
+  color: #00a2ff;
+  outline: none;
+}
+
+.xrain-button svg {
+  display: block;
+  flex: 0 0 auto;
+  height: 18px;
+  pointer-events: none;
+  width: 18px;
+}
+
+.xrain-button--x {
+  height: 34px;
+  width: 34px;
+}
+
+.xrain-button--x:hover,
+.xrain-button--x:focus-visible {
+  background: rgba(0, 162, 255, 0.1);
+}
+
+.xrain-button--reddit,
+.xrain-button--hn {
+  color: inherit;
+  height: auto;
+  padding: 0 2px;
+}
+
+.xrain-button--reddit svg,
+.xrain-button--hn svg {
+  height: 13px;
+  width: 13px;
+}
+
+.xrain-hn-cell {
+  white-space: nowrap;
+}
